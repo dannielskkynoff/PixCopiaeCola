@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Pix Copia e Cola</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f9f9f9;
+    }
+
+    .container {
+      text-align: center;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    textarea {
+      width: 100%;
+      max-width: 400px;
+      height: 100px;
+      padding: 10px;
+      font-size: 14px;
+      resize: none;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #219653;
+    }
+
+    .mensagem {
+      color: green;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Pix Copia e Cola</h2>
+    <textarea id="chavePix" readonly>00020126490014br.gov.bcb.pix0114+55949928690180209NuxProPay520400005303986540539.905802BR5924Carlos Daniel Cavalcante6008Brasilia62240520daqr246110240181954163043A77</textarea>
+    <br>
+    <button onclick="copiarChave()">Copiar</button>
+    <div id="mensagem" class="mensagem"></div>
+  </div>
+
+  <script>
+    function copiarChave() {
+      const chave = document.getElementById("chavePix");
+      chave.select();
+      chave.setSelectionRange(0, 99999); // Para dispositivos móveis
+      document.execCommand("copy");
+
+      const msg = document.getElementById("mensagem");
+      msg.innerText = "Chave Pix copiada!";
+      setTimeout(() => msg.innerText = "", 2000);
+    }
+  </script>
+
+</body>
+</html>
